@@ -89,7 +89,7 @@
 
         // This series of if - else states can be done with switch 
         if(this.props.currentPage === "Why?"){
-          pageContent = <div><p className="lead" style={{minWidth: '500px', textAlign: 'justify'}}>Because it is always good to remember 
+          pageContent = <div><p className="lead" style={{maxWidth: '500px', textAlign: 'justify'}}>Because it is always good to remember 
                   how things work under the hood, specially today
                   that there are so many JavaScript frameworks.
                   This page also implements Redux,
@@ -115,7 +115,7 @@
                             <h6>JavaScript, ReactJS</h6>
                             <h6>Python</h6>
                             <h6>Gothenburg, Sweden</h6>
-                            <p className="lead" style={{minWidth: '500px', textAlign: 'justify'}}>I love JavaScript, and the ReactJS framework. I think it is not only fun to build
+                            <p className="lead" style={{maxWidth: '500px', textAlign: 'justify'}}>I love JavaScript, and the ReactJS framework. I think it is not only fun to build
                             web applications with ReactJS, but also very efficient.I made this vanilla version just for fun,
                             and because the React.createClass is deprecated and will be removed from React v 16.0.
                             I also love to code in Python to solve algorithm problems.</p>
@@ -126,9 +126,10 @@
                             <h6 className="lead">contact@icjoseph.com</h6>
                             <h6><a href="https://icjoseph.com" target="_blank" className="lead">Personal Website</a></h6>
                             <h6><a href="https://github.com/icyJoseph/" target="_blank" className="lead">Repository</a></h6>
-                            <p className="lead" style={{minWidth: '500px', textAlign: 'justify'}}>I currently live in the city 
-                                                of Gothenburg, Sweden. The best way to communicate with me is via email, where
-                                                I can provide further means of communication.</p>
+                            <p className="lead" style={{maxWidth: '500px', textAlign: 'justify'}}>I currently live in the city 
+                                                of Gothenburg, Sweden. The best way to communicate with me is via email, once there
+                                                I can provide further means of communication. If you have questions about how this demo
+                                                works, do not hesitate to contact me as well. Thanks for visiting!</p>
                        </div>;
         }
         return (
@@ -194,8 +195,7 @@
     /*
     The 'store' is accessible to the whole code structure
     and therefore it is not necessary to pass it as props to Theme.
-    However, we often to this when we have bigger applications, although 
-    a provider is used when doing so. 
+    However, it looks classy 
     */
     var store = Redux.createStore(counterReducer);
 
