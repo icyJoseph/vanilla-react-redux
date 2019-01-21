@@ -1,215 +1,322 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8" />
-  <meta name="Vanilla React-Redux App" content="This app implements React-Redux using createClass depreacted method.">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vanilla React-Redux App</title>
-  <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
-  <script src="https://unpkg.com/react@latest/dist/react.js"></script>
-  <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
-  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="Vanilla React-Redux App"
+      content="This app implements React-Redux using createClass depreacted method."
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vanilla React-Redux App</title>
+    <script src="https://unpkg.com/redux@3.0.0/dist/redux.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.2/react.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/15.6.2/react-dom.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+      integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+      crossorigin="anonymous"
+    />
+  </head>
 
-<body>
-  <div id="root"></div>
+  <body>
+    <div id="root"></div>
 
-
-  <script type="text/babel">
-    var Navbar = React.createClass({ 
-      
-      render() { 
-        return (
-              <nav className="navbar navbar-toggleable-lg navbar-inverse bg-inverse">
-                <div className="container" style={{textAlign: 'center'}}>
-                  <a className="navbar-brand" href="#" onClick={() => this.props.change('Why?')}>{this.props.brand}</a>
-                  <div className=" navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav">
-                      <li className={
-                        (this.props.currentPage === 'Why?') ? 
-                        'nav-item active': 'nav-item'}>
-                          <a className="nav-link" href="#"
-                              onClick={() => this.props.change('Why?')}>
-                            Why?
-                          </a>
-                      </li>
-                      <li className={
-                        (this.props.currentPage === 'About') ? 
-                        'nav-item active': 'nav-item'}>
-                          <a className="nav-link" href="#"
-                            onClick={() => this.props.change('About')}>
-                            About
-                          </a>
-                      </li>
-                      <li className={
-                        (this.props.currentPage === 'Contact') ? 
-                        'nav-item active': 'nav-item'}>
-                          <a className="nav-link" href="#"
-                            onClick={() => this.props.change('Contact')}>
-                            Contact
-                          </a>
-                      </li>
-                    </ul>
-                  </div>
+    <script type="text/babel">
+      var Navbar = React.createClass({
+        render() {
+          return (
+            <nav className="navbar navbar-toggleable-lg navbar-inverse bg-inverse">
+              <div className="container" style={{ textAlign: "center" }}>
+                <a
+                  className="navbar-brand"
+                  href="#"
+                  onClick={() => this.props.change("Why?")}
+                >
+                  {this.props.brand}
+                </a>
+                <div className=" navbar-collapse" id="navbarNav">
+                  <ul className="navbar-nav">
+                    <li
+                      className={
+                        this.props.currentPage === "Why?"
+                          ? "nav-item active"
+                          : "nav-item"
+                      }
+                    >
+                      <a
+                        className="nav-link"
+                        href="#"
+                        onClick={() => this.props.change("Why?")}
+                      >
+                        Why?
+                      </a>
+                    </li>
+                    <li
+                      className={
+                        this.props.currentPage === "About"
+                          ? "nav-item active"
+                          : "nav-item"
+                      }
+                    >
+                      <a
+                        className="nav-link"
+                        href="#"
+                        onClick={() => this.props.change("About")}
+                      >
+                        About
+                      </a>
+                    </li>
+                    <li
+                      className={
+                        this.props.currentPage === "Contact"
+                          ? "nav-item active"
+                          : "nav-item"
+                      }
+                    >
+                      <a
+                        className="nav-link"
+                        href="#"
+                        onClick={() => this.props.change("Contact")}
+                      >
+                        Contact
+                      </a>
+                    </li>
+                  </ul>
                 </div>
-              </nav>
-            ); 
-          } 
-      }); 
-    
-    var Jumbotron = React.createClass({ 
-      render() { 
-        return (
+              </div>
+            </nav>
+          );
+        }
+      });
+
+      var Jumbotron = React.createClass({
+        render() {
+          return (
             <div>
-              <div className="jumbotron" style={{background:'black', color: 'white', borderRadius: 0}}>
+              <div
+                className="jumbotron"
+                style={{ background: "black", color: "white", borderRadius: 0 }}
+              >
                 <div className="container">
-                <h1>{this.props.heading}</h1>
-                <p className="lead"><code>{this.props.React} - {this.props.redux}</code> vanilla demo. The source code is beautiful isn't it? 
-                    <br/>Style brought to you thanks to <code>{this.props.CSS}</code>!</p>
-                <p><a className="btn btn-primary btn-lg" href="https://facebook.github.io/react/" target="_blank">Try ReactJS!</a></p>
+                  <h1>{this.props.heading}</h1>
+                  <p className="lead">
+                    <code>
+                      {this.props.React} - {this.props.redux}
+                    </code>{" "}
+                    vanilla demo. The source code is beautiful isn't it?
+                    <br />
+                    Style brought to you thanks to <code>{this.props.CSS}</code>
+                    !
+                  </p>
+                  <p>
+                    <a
+                      className="btn btn-primary btn-lg"
+                      href="https://facebook.github.io/react/"
+                      target="_blank"
+                    >
+                      Try ReactJS!
+                    </a>
+                  </p>
                 </div>
               </div>
             </div>
           );
-        } 
-      }); 
-    
-    var Page = React.createClass({ 
-      render() { 
-        var pageContent;
-            /*
+        }
+      });
+
+      var Page = React.createClass({
+        render() {
+          var pageContent;
+          /*
     The 'store' is accessible to the whole code structure
     and therefore it is not necessary to pass it as props to Theme.
     However, we often to this when we have bigger applications, although 
     a provider is used when doing so. 
     */
-        var count = this.props.store.getState().count;
+          var count = this.props.store.getState().count;
 
-        // This series of if - else states can be done with switch 
-        if(this.props.currentPage === "Why?"){
-          pageContent = <div><p className="lead" style={{maxWidth: '500px', textAlign: 'justify'}}>Because it is always good to remember 
-                  how things work under the hood, specially today
-                  that there are so many JavaScript frameworks.
-                  This page also implements Redux,
-                  in the same plain JS fashion. Enjoy!</p>
-                  
-                  <div className="container" style={{textAlign:'center'}}>
+          // This series of if - else states can be done with switch
+          if (this.props.currentPage === "Why?") {
+            pageContent = (
+              <div>
+                <p
+                  className="lead"
+                  style={{ maxWidth: "500px", textAlign: "justify" }}
+                >
+                  Because it is always good to remember how things work under
+                  the hood, specially today that there are so many JavaScript
+                  frameworks. This page also implements Redux, in the same plain
+                  JS fashion. Enjoy!
+                </p>
+
+                <div className="container" style={{ textAlign: "center" }}>
                   <h3>Redux Counter</h3>
 
                   {/* This element displays the current status of count */}
                   <p className="lead">{count}</p>
 
                   {/* The buttons dispatch actions when clicked */}
-                  <button type="button" className="btn btn-danger" style={{marginRight:'5px'}}
-                          onClick={() => this.props.store.dispatch({type: 'DEC'})}> Decrease </button>
-                  <button type="button" className="btn btn-success" style={{marginLeft:'5px'}}
-                          onClick={() => this.props.store.dispatch({type: 'INC'})}> Increase </button>
-                  </div>
-                  </div>
-        }
-        else if( this.props.currentPage === "About"){
-          pageContent=  <div>
-                            <h4>Joseph Chamochumbi</h4>
-                            <h6>JavaScript, ReactJS</h6>
-                            <h6>Python</h6>
-                            <h6>Gothenburg, Sweden</h6>
-                            <p className="lead" style={{maxWidth: '500px', textAlign: 'justify'}}>I love JavaScript, and the ReactJS framework. I think it is not only fun to build
-                            web applications with ReactJS, but also very efficient.I made this vanilla version just for fun,
-                            and because the React.createClass is deprecated and will be removed from React v 16.0.
-                            I also love to code in Python to solve algorithm problems.</p>
-                        </div>;
-        }
-        else if( this.props.currentPage === "Contact"){
-          pageContent= <div>
-                            <h6 className="lead">contact@icjoseph.com</h6>
-                            <h6><a href="https://icjoseph.com" target="_blank" className="lead">Personal Website</a></h6>
-                            <h6><a href="https://github.com/icyJoseph/" target="_blank" className="lead">Repository</a></h6>
-                            <p className="lead" style={{maxWidth: '500px', textAlign: 'justify'}}>I currently live in the city 
-                                                of Gothenburg, Sweden. The best way to communicate with me is via email, once there
-                                                I can provide further means of communication. If you have questions about how this demo
-                                                works, do not hesitate to contact me as well. Thanks for visiting!</p>
-                       </div>;
-        }
-        return (
-              <div>
-                <div className="container">
-                  <h2 className="display-4">{this.props.currentPage}</h2>
-                  {pageContent}
-                  <hr/>
+                  <button
+                    type="button"
+                    className="btn btn-danger"
+                    style={{ marginRight: "5px" }}
+                    onClick={() => this.props.store.dispatch({ type: "DEC" })}
+                  >
+                    {" "}
+                    Decrease{" "}
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-success"
+                    style={{ marginLeft: "5px" }}
+                    onClick={() => this.props.store.dispatch({ type: "INC" })}
+                  >
+                    {" "}
+                    Increase{" "}
+                  </button>
                 </div>
               </div>
-              ) 
-            } 
-      }); 
-    
-    var Theme = React.createClass({ 
-      getInitialState(){
-          return {
-            currentPage: 'Why?'
+            );
+          } else if (this.props.currentPage === "About") {
+            pageContent = (
+              <div>
+                <h4>Joseph Chamochumbi</h4>
+                <h6>JavaScript, ReactJS</h6>
+                <h6>Python</h6>
+                <h6>Gothenburg, Sweden</h6>
+                <p
+                  className="lead"
+                  style={{ maxWidth: "500px", textAlign: "justify" }}
+                >
+                  I love JavaScript, and the ReactJS framework. I think it is
+                  not only fun to build web applications with ReactJS, but also
+                  very efficient.I made this vanilla version just for fun, and
+                  because the React.createClass is deprecated and will be
+                  removed from React v 16.0. I also love to code in Python to
+                  solve algorithm problems.
+                </p>
+              </div>
+            );
+          } else if (this.props.currentPage === "Contact") {
+            pageContent = (
+              <div>
+                <h6 className="lead">contact@icjoseph.com</h6>
+                <h6>
+                  <a
+                    href="https://icjoseph.com"
+                    target="_blank"
+                    className="lead"
+                  >
+                    Personal Website
+                  </a>
+                </h6>
+                <h6>
+                  <a
+                    href="https://github.com/icyJoseph/"
+                    target="_blank"
+                    className="lead"
+                  >
+                    Repository
+                  </a>
+                </h6>
+                <p
+                  className="lead"
+                  style={{ maxWidth: "500px", textAlign: "justify" }}
+                >
+                  I currently live in the city of Gothenburg, Sweden. The best
+                  way to communicate with me is via email, once there I can
+                  provide further means of communication. If you have questions
+                  about how this demo works, do not hesitate to contact me as
+                  well. Thanks for visiting!
+                </p>
+              </div>
+            );
           }
-      },
-      getDefaultProps(){ // This could very well be on the state
-        return {
-          brand: 'Vanilla React-Redux',
-          heading: 'React-Redux Vanilla App',
-          react: 'React',
-          css: 'Bootstrap',
-          redux: 'Redux',
+          return (
+            <div>
+              <div className="container">
+                <h2 className="display-4">{this.props.currentPage}</h2>
+                {pageContent}
+                <hr />
+              </div>
+            </div>
+          );
         }
-      },
-      render() {
-        return (
-        <div>
-          <Navbar currentPage={this.state.currentPage} 
-                  brand={this.props.brand}
-                  change={(page) => this.setState({currentPage: page})}/>
-          <Jumbotron heading={this.props.heading} 
-                      React={this.props.react} 
-                      CSS={this.props.css}
-                      redux={this.props.redux}
-                      />
-          <Page currentPage={this.state.currentPage} store={store}/>
-        </div>
-      );
-    } 
-  }); 
+      });
 
+      var Theme = React.createClass({
+        getInitialState() {
+          return {
+            currentPage: "Why?"
+          };
+        },
+        getDefaultProps() {
+          // This could very well be on the state
+          return {
+            brand: "Vanilla React-Redux",
+            heading: "React-Redux Vanilla App",
+            react: "React",
+            css: "Bootstrap",
+            redux: "Redux"
+          };
+        },
+        render() {
+          return (
+            <div>
+              <Navbar
+                currentPage={this.state.currentPage}
+                brand={this.props.brand}
+                change={page => this.setState({ currentPage: page })}
+              />
+              <Jumbotron
+                heading={this.props.heading}
+                React={this.props.react}
+                CSS={this.props.css}
+                redux={this.props.redux}
+              />
+              <Page currentPage={this.state.currentPage} store={store} />
+            </div>
+          );
+        }
+      });
 
-  // Counter Reducer is defined here. The count will start at 5.
-    function counterReducer(state, action){
-      var defaultValue = {count: 5};
-      if(state === undefined){
-        return defaultValue;
+      // Counter Reducer is defined here. The count will start at 5.
+      function counterReducer(state, action) {
+        var defaultValue = { count: 5 };
+        if (state === undefined) {
+          return defaultValue;
+        }
+        switch (action.type) {
+          case "INC":
+            return Object.assign({}, { count: state.count + 1 });
+          case "DEC":
+            return Object.assign({}, { count: state.count - 1 });
+          default:
+            return Object.assing({}, { count: state.count });
+        }
       }
-      switch(action.type){
-        case "INC":
-          return Object.assign({}, {count: state.count + 1})
-        case "DEC":
-          return Object.assign({}, {count: state.count - 1})  
-        default:
-          return Object.assing({}, {count: state.count})
-      }
-    }
-    /*
+      /*
     The 'store' is accessible to the whole code structure
     and therefore it is not necessary to pass it as props to Theme.
     However, it looks classy 
     */
-    var store = Redux.createStore(counterReducer);
+      var store = Redux.createStore(counterReducer);
 
-    function render(){ ReactDOM.render(
-    <div>
-      <Theme store={store}/>
-    </div>, document.getElementById("root") );
-    }
+      function render() {
+        ReactDOM.render(
+          <div>
+            <Theme store={store} />
+          </div>,
+          document.getElementById("root")
+        );
+      }
 
-
-    // Execute the rendering and subscribe it to the Redux store
-    render();
-    store.subscribe(render);
-
-  </script>
-</body>
+      // Execute the rendering and subscribe it to the Redux store
+      render();
+      store.subscribe(render);
+    </script>
+  </body>
 </html>
